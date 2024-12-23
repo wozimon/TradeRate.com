@@ -2,109 +2,109 @@
 <html>
 <head>
     <title>Tempura Trade Rate</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #36393f;
             margin: 0;
             padding: 0;
-            color: #333;
-            overflow-x: hidden; /* Prevent horizontal scrollbar due to animations */
+            color: #dcddde;
+            overflow-x: hidden;
         }
         .container {
-            width: 100%; /* Full width on all devices */
+            width: 100%;
             margin: 0 auto;
             padding: 10px;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #2f3136;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             position: relative;
             z-index: 1;
         }
         h1 {
             text-align: center;
-            color: #333;
-            font-size: 2em; /* Adjusted for mobile */
+            color: #dcddde;
+            font-size: 2em;
             font-weight: bold;
             margin-bottom: 0;
         }
         h1 span {
-            color: #4CAF50;
+            color: #7289da;
         }
         h2 {
             text-align: center;
             margin-bottom: 10px;
-            color: #333;
-            font-size: 1.2em; /* Adjusted for mobile */
+            color: #dcddde;
+            font-size: 1.2em;
         }
         .subtitle {
             text-align: center;
-            font-size: 1em; /* Adjusted for mobile */
+            font-size: 1em;
             margin-top: 0;
         }
         .trade-container {
             display: flex;
-            flex-wrap: wrap; /* Allow wrapping for smaller screens */
+            flex-wrap: wrap;
             justify-content: space-around;
             margin-top: 20px;
         }
         .trade-column {
             flex: 1;
-            padding: 5px; /* Adjusted for mobile */
-            border: 1px solid #ddd;
+            padding: 5px;
+            border: 1px solid #7289da;
             border-radius: 5px;
-            margin: 5px; /* Adjusted for mobile */
-            min-width: 45%; /* Ensure two columns on smaller screens */
+            margin: 5px;
+            min-width: 45%;
         }
         .slot {
-            background-color: #f0f0f0;
-            border: 1px solid #ddd;
+            background-color: #40444b;
+            border: 1px solid #7289da;
             padding: 10px;
             margin-bottom: 5px;
             border-radius: 5px;
             text-align: center;
-            min-height: 30px; /* Adjusted for mobile */
-            line-height: 30px; /* Adjusted for mobile */
+            min-height: 30px;
+            line-height: 30px;
             cursor: pointer;
             transition: background-color 0.3s;
-            font-size: 0.9em; /* Adjusted for mobile */
+            font-size: 0.9em;
         }
         .slot:hover {
-            background-color: #e0e0e0;
+            background-color: #484c54;
         }
         .selected {
-            background-color: #4CAF50;
+            background-color: #7289da;
             color: white;
         }
         .trade-button {
             display: block;
-            width: 95%; /* Adjusted for mobile */
+            width: 95%;
             padding: 10px;
             margin: 10px auto;
-            background-color: #4CAF50;
+            background-color: #7289da;
             color: white;
             border: none;
             border-radius: 5px;
-            font-size: 1em; /* Adjusted for mobile */
+            font-size: 1em;
             cursor: pointer;
             transition: background-color 0.3s;
         }
         .trade-button:hover {
-            background-color: #367c39;
+            background-color: #677bc4;
         }
         .result {
             text-align: center;
-            font-size: 1.1em; /* Adjusted for mobile */
+            font-size: 1.1em;
             margin-top: 10px;
         }
         .win {
-            color: green;
+            color: #43b581;
         }
         .lose {
-            color: red;
+            color: #f04747;
         }
         .fair {
-            color: orange;
+            color: #faa61a;
         }
         .hidden {
             display: none;
@@ -116,21 +116,34 @@
             margin-top: 20px;
         }
         .item-button {
-            background-color: #f0f0f0;
-            border: 1px solid #ddd;
+            background-color: #a4b1e2;
+            border: 1px solid #7289da;
             padding: 5px 10px;
             margin: 5px;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s, color 0.3s;
-            color: black; /* Set text color to black */
+            color: black;
             font-size: 0.9em;
         }
         .item-button:hover {
-            background-color: #e0e0e0;
+            background-color: #484c54;
+            color: white;
+        }
+        .item-button.fruit { 
+            background-color: #a4b1e2;
+            color: black;
+        }
+        .item-button.gamepass { 
+            background-color: #a4b1e2;
+            color: black;
+        }
+        .item-button.perm { 
+            background-color: #a4b1e2;
+            color: black;
         }
         .item-selected {
-            background-color: #4CAF50;
+            background-color: #7289da;
             color: white;
         }
         .item-search {
@@ -138,7 +151,9 @@
             width: calc(95% - 22px);
             padding: 10px;
             margin: 20px auto;
-            border: 1px solid #ddd;
+            border: 1px solid #7289da;
+            background-color: #40444b;
+            color: #dcddde;
             border-radius: 5px;
             font-size: 1em;
         }
@@ -148,8 +163,8 @@
             margin: 10px;
         }
         .category-button {
-            background-color: #f0f0f0;
-            border: 1px solid #ddd;
+            background-color: #40444b;
+            border: 1px solid #7289da;
             padding: 10px;
             margin: 0 5px;
             border-radius: 5px;
@@ -158,88 +173,12 @@
             font-size: 1em;
         }
         .category-button:hover {
-            background-color: #e0e0e0;
+            background-color: #484c54;
         }
         .category-selected {
-            background-color: #4CAF50;
+            background-color: #7289da;
             color: white;
         }
-        /* Animations */
-        @keyframes float {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0); }
-        }
-
-        .float {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .rotate {
-            animation: rotate 5s linear infinite;
-        }
-
-        @keyframes color-change {
-            0% { background-color: #f44336; }
-            25% { background-color: #ff9800; }
-            50% { background-color: #ffeb3b; }
-            75% { background-color: #4caf50; }
-            100% { background-color: #2196f3; }
-        }
-
-        .color-change {
-            animation: color-change 10s linear infinite;
-        }
-        .background-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            display: none;
-        }
-        .circle {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.3;
-        }
-
-        .circle-1 {
-            width: 100px;
-            height: 100px;
-            background-color: #f44336;
-            top: 10%;
-            left: 10%;
-            animation: float 5s ease-in-out infinite, color-change 10s linear infinite;
-        }
-
-        .circle-2 {
-            width: 150px;
-            height: 150px;
-            background-color: #2196f3;
-            bottom: 20%;
-            right: 15%;
-            animation: float 7s ease-in-out infinite, color-change 8s linear infinite reverse;
-        }
-
-        .circle-3 {
-            width: 80px;
-            height: 80px;
-            background-color: #4caf50;
-            top: 50%;
-            left: 70%;
-            animation: float 4s ease-in-out infinite, color-change 9s linear infinite;
-        }
-        .item-button.fruit { background-color: #ffd700; } /* Gold */
-        .item-button.gamepass { background-color: #c0c0c0; } /* Silver */
-        .item-button.perm { background-color: #b87333; } /* Bronze */
-
         .clear-buttons-container {
             display: flex;
             flex-wrap: wrap;
@@ -248,7 +187,7 @@
         }
         .clear-button {
             padding: 5px 10px;
-            background-color: #f44336;
+            background-color: #f04747;
             color: white;
             border: none;
             border-radius: 5px;
@@ -265,7 +204,7 @@
             width: 95%;
             padding: 10px;
             margin: 10px auto;
-            background-color: #7289da;
+            background: linear-gradient(to right, #7289da, #677bc4);
             color: white;
             border: none;
             border-radius: 5px;
@@ -274,46 +213,52 @@
             text-decoration: none;
             text-align: center;
             transition: background-color 0.3s;
+            animation: gradient 3s ease infinite;
+            background-size: 200% 200%;
         }
 
         .discord-button:hover {
             background-color: #677bc4;
+            animation: none;
+        }
+
+        @keyframes gradient { 
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
         }
         /* Media Queries for Mobile Devices */
         @media only screen and (max-width: 480px) {
-            .background-animation {
-                display: block;
-            }
             h1 {
-                font-size: 1.8em; /* Further reduced for very small screens */
+                font-size: 1.8em;
             }
             h2 {
-                font-size: 1.1em; /* Further reduced for very small screens */
+                font-size: 1.1em;
             }
             .subtitle {
-                font-size: 0.9em; /* Further reduced for very small screens */
+                font-size: 0.9em;
             }
             .trade-column {
-                min-width: 95%; /* Single column layout for very small screens */
-                margin: 5px 0; /* Adjusted margin for single column */
+                min-width: 95%;
+                margin: 5px 0;
             }
             .slot {
-                min-height: 25px; /* Further reduced for very small screens */
-                line-height: 25px; /* Further reduced for very small screens */
-                font-size: 0.8em; /* Further reduced for very small screens */
+                min-height: 25px;
+                line-height: 25px;
+                font-size: 0.8em;
             }
             .item-button {
-                font-size: 0.8em; /* Further reduced for very small screens */
+                font-size: 0.8em;
             }
             .category-button {
-                font-size: 0.9em; /* Further reduced for very small screens */
+                font-size: 0.9em;
             }
             .clear-button {
-                font-size: 0.8em; /* Further reduced for very small screens */
+                font-size: 0.8em;
                 margin: 2px 0;
             }
             .discord-button {
-                font-size: 0.9em; /* Further reduced for very small screens */
+                font-size: 0.9em;
             }
             .item-search {
                 font-size: 0.9em;
@@ -323,11 +268,6 @@
     </style>
 </head>
 <body>
-    <div class="background-animation">
-        <div class="circle circle-1"></div>
-        <div class="circle circle-2"></div>
-        <div class="circle circle-3"></div>
-    </div>
     <div class="container">
         <h1><span>Tempura</span></h1>
         <p class="subtitle">Trade Rate</p>
