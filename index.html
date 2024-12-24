@@ -2,189 +2,197 @@
 <html>
 <head>
     <title>Tempura Trade Rate</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <style>
         body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: 'Whitney', 'Helvetica Neue', Helvetica, Arial, sans-serif;
             background-color: #36393f;
             margin: 0;
             padding: 0;
             color: #dcddde;
             overflow-x: hidden;
         }
+
         .container {
-            width: 100%;
-            margin: 0 auto;
-            padding: 10px;
-            background-color: #2f3136;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            position: relative;
-            z-index: 1;
+            width: 95%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #40444b;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
         }
+
         h1 {
             text-align: center;
-            color: #dcddde;
-            font-size: 2em;
+            color: #fff;
+            font-size: 3em;
             font-weight: bold;
             margin-bottom: 0;
+            font-family: 'Ginto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
         }
-        h1 span {
-            color: #7289da;
-        }
-        h2 {
-            text-align: center;
-            margin-bottom: 10px;
-            color: #dcddde;
-            font-size: 1.2em;
-        }
+
         .subtitle {
             text-align: center;
-            font-size: 1em;
+            font-size: 1.5em;
             margin-top: 0;
+            color: #fff;
+            font-family: 'Ginto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
         }
+
         .trade-container {
             display: flex;
-            flex-wrap: wrap;
             justify-content: space-around;
             margin-top: 20px;
         }
+
         .trade-column {
             flex: 1;
-            padding: 5px;
-            border: 1px solid #7289da;
+            padding: 10px;
+            border: 1px solid #202225;
             border-radius: 5px;
-            margin: 5px;
-            min-width: 45%;
+            margin: 0 10px;
+            background-color: #36393f;
         }
+        .trade-column h2{
+            text-align: center;
+            color: white;
+        }
+
         .slot {
-            background-color: #40444b;
-            border: 1px solid #7289da;
+            background-color: #2f3136;
+            border: 1px solid #202225;
             padding: 10px;
             margin-bottom: 5px;
             border-radius: 5px;
             text-align: center;
-            min-height: 30px;
-            line-height: 30px;
+            min-height: 40px;
+            line-height: 40px;
             cursor: pointer;
             transition: background-color 0.3s;
-            font-size: 0.9em;
+            color: #dcddde;
         }
+
         .slot:hover {
-            background-color: #484c54;
+            background-color: #40444b;
         }
+
         .selected {
             background-color: #7289da;
             color: white;
         }
+
         .trade-button {
             display: block;
-            width: 95%;
+            width: 200px;
             padding: 10px;
-            margin: 10px auto;
+            margin: 20px auto;
             background-color: #7289da;
             color: white;
             border: none;
             border-radius: 5px;
-            font-size: 1em;
+            font-size: 16px;
             cursor: pointer;
             transition: background-color 0.3s;
         }
+
         .trade-button:hover {
             background-color: #677bc4;
         }
+
         .result {
             text-align: center;
-            font-size: 1.1em;
-            margin-top: 10px;
+            font-size: 18px;
+            margin-top: 20px;
         }
+
         .win {
             color: #43b581;
         }
+
         .lose {
             color: #f04747;
         }
+
         .fair {
             color: #faa61a;
         }
+
         .hidden {
             display: none;
         }
+
         .item-list {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             margin-top: 20px;
         }
+
         .item-button {
             background-color: #a4b1e2;
-            border: 1px solid #7289da;
+            border: 1px solid #202225;
             padding: 5px 10px;
             margin: 5px;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s, color 0.3s;
-            color: black;
-            font-size: 0.9em;
+            color: #000000;
+
         }
+
         .item-button:hover {
-            background-color: #484c54;
-            color: white;
+            background-color: #40444b;
         }
-        .item-button.fruit { 
-            background-color: #a4b1e2;
-            color: black;
-        }
-        .item-button.gamepass { 
-            background-color: #a4b1e2;
-            color: black;
-        }
-        .item-button.perm { 
-            background-color: #a4b1e2;
-            color: black;
-        }
+
         .item-selected {
             background-color: #7289da;
             color: white;
         }
+
         .item-search {
             display: block;
-            width: calc(95% - 22px);
+            width: calc(100% - 22px);
             padding: 10px;
             margin: 20px auto;
-            border: 1px solid #7289da;
-            background-color: #40444b;
-            color: #dcddde;
+            border: 1px solid #202225;
             border-radius: 5px;
-            font-size: 1em;
+            font-size: 16px;
+            background-color: #2f3136;
+            color: #dcddde;
         }
+
         .category-container {
             display: flex;
             justify-content: center;
-            margin: 10px;
+            margin-top: 20px;
         }
+
         .category-button {
-            background-color: #40444b;
-            border: 1px solid #7289da;
-            padding: 10px;
+            background-color: #2f3136;
+            border: 1px solid #202225;
+            padding: 10px 20px;
             margin: 0 5px;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
-            font-size: 1em;
+            color: #dcddde;
         }
+
         .category-button:hover {
-            background-color: #484c54;
+            background-color: #40444b;
         }
+
         .category-selected {
             background-color: #7289da;
             color: white;
         }
+
         .clear-buttons-container {
             display: flex;
-            flex-wrap: wrap;
             justify-content: space-around;
             margin-top: 10px;
         }
+
         .clear-button {
             padding: 5px 10px;
             background-color: #f04747;
@@ -193,83 +201,86 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
-            font-size: 0.9em;
-            margin: 2px;
         }
+
         .clear-button:hover {
             background-color: #d32f2f;
         }
+
         .discord-button {
             display: block;
-            width: 95%;
+            width: 200px;
             padding: 10px;
-            margin: 10px auto;
-            background: linear-gradient(to right, #7289da, #677bc4);
+            margin: 20px auto;
+            background-color: #7289da;
             color: white;
             border: none;
             border-radius: 5px;
-            font-size: 1em;
+            font-size: 16px;
             cursor: pointer;
             text-decoration: none;
             text-align: center;
-            transition: background-color 0.3s;
-            animation: gradient 3s ease infinite;
-            background-size: 200% 200%;
+            transition: background-color 0.3s, transform 0.2s;
+            position: relative;
+            overflow: hidden;
         }
-
         .discord-button:hover {
-            background-color: #677bc4;
-            animation: none;
+          background-color: #677bc4;
+        }
+        
+        .discord-button::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 70%);
+          opacity: 0;
+          transition: opacity 0.5s;
+          pointer-events: none;
+        }
+        
+        .discord-button:hover::before {
+          opacity: 1;
+          animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+          0% {
+            transform: scale(0.5);
+            opacity: 0;
+          }
+          50% {
+            opacity: 0.8;
+          }
+          100% {
+            transform: scale(1.2);
+            opacity: 0;
+          }
+        }
+        @media (max-width: 768px) {
+            .trade-container {
+                flex-direction: column;
+            }
+            .trade-column{
+                margin: 0;
+            }
+            .container{
+                margin: 10px auto;
+                width: 98%;
+            }
+            .trade-column + .trade-column{
+                margin-top: 20px;
+            }
         }
 
-        @keyframes gradient { 
-            0%{background-position:0% 50%}
-            50%{background-position:100% 50%}
-            100%{background-position:0% 50%}
-        }
-        /* Media Queries for Mobile Devices */
-        @media only screen and (max-width: 480px) {
-            h1 {
-                font-size: 1.8em;
-            }
-            h2 {
-                font-size: 1.1em;
-            }
-            .subtitle {
-                font-size: 0.9em;
-            }
-            .trade-column {
-                min-width: 95%;
-                margin: 5px 0;
-            }
-            .slot {
-                min-height: 25px;
-                line-height: 25px;
-                font-size: 0.8em;
-            }
-            .item-button {
-                font-size: 0.8em;
-            }
-            .category-button {
-                font-size: 0.9em;
-            }
-            .clear-button {
-                font-size: 0.8em;
-                margin: 2px 0;
-            }
-            .discord-button {
-                font-size: 0.9em;
-            }
-            .item-search {
-                font-size: 0.9em;
-                width: calc(90% - 22px);
-            }
-        }
+
     </style>
 </head>
 <body>
     <div class="container">
-        <h1><span>Tempura</span></h1>
+        <h1>Tempura</h1>
         <p class="subtitle">Trade Rate</p>
 
         <input type="text" id="itemSearch" class="item-search" placeholder="Search for items..." onkeyup="filterItems()">
@@ -303,7 +314,7 @@
 
         <div class="result" id="tradeResult"></div>
         <div class="item-list" id="itemList"></div>
-        <a href="https://discord.gg/example" class="discord-button" target="_blank">Join our Discord</a>
+        <a href="https://discord.gg/Yh46EFRQQ2" class="discord-button" target="_blank">Join our Discord</a>
     </div>
 
     <script>
@@ -447,17 +458,17 @@
 
                 // Add category class
                 if (categories[currentCategory].includes(item)) {
-                  button.style.display = 'block'
+                    button.style.display = 'block'
                 } else {
-                  button.style.display = 'none'
+                    button.style.display = 'none'
                 }
                 if (categories["blox-fruits"].includes(item)) {
                     if (prices[item] >= 25 && prices[item] <= 6800 ) {
-                      button.classList.add('perm');
+                        button.classList.add('perm');
                     } else if (prices[item] >= 275 && prices[item] <= 325 ) {
-                      button.classList.add('gamepass');
+                        button.classList.add('gamepass');
                     } else {
-                      button.classList.add('fruit');
+                        button.classList.add('fruit');
                     }
                 }
 
